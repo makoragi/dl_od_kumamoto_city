@@ -1,0 +1,24 @@
+name: ファイルダウンロードとGitHub Pagesへのデプロイ
+
+on:
+  workflow_dispatch:  # 手動トリガー
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: リポジトリのチェックアウト
+        uses: actions/checkout@v2
+
+      - name: ダウンロード対象ファイルの取得
+        run: |
+          mkdir -p data  # ダウンロード先のディレクトリを作成
+          curl -L "https://www.city.kumamoto.jp/opendata/pub/Insyokutenneigyoukyoka.csv" -o data/Insyokutenneigyoukyoka.csv
+
+      - name: GitHub Pagesへデプロイ
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./data  # GitHub Pagesにデプロイするディレクトリを指定
+          # publish_dirはダウンロードしたファイルがあるディレクトリに設定してください
+          publish_branch: gh-pages

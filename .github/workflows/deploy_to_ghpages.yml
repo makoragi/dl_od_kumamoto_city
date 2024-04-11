@@ -15,7 +15,7 @@ jobs:
       - name: ダウンロード対象ファイルの取得
         run: |
           mkdir -p data  # ダウンロード先のディレクトリを作成
-          curl -L "https://www.city.kumamoto.jp/opendata/pub/Insyokutenneigyoukyoka.csv" -o data/Insyokutenneigyoukyoka.csv
+          curl -L "https://www.city.kumamoto.jp/opendata/pub/Insyokutenneigyoukyoka.csv" -o data/org/Insyokutenneigyoukyoka.csv
 
       - name: GitHub Pagesへデプロイ
         uses: peaceiris/actions-gh-pages@v3

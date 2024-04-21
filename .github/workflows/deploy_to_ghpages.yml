@@ -1,9 +1,9 @@
 name: ファイルダウンロードとGitHub Pagesへのデプロイ
 
 on:
-  # schedule:
-  #   - cron: '0 10 * * *' # 1日1回 UTCでの10時に
-  workflow_dispatch:  # 手動トリガー
+  schedule:
+    - cron: '0 10 * * *' # 1日1回 UTCでの10時に
+  # workflow_dispatch:  # 手動トリガー
 
 jobs:
   deploy:

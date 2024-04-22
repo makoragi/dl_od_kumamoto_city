@@ -1,9 +1,9 @@
 name: ファイルダウンロードとGitHub Pagesへのデプロイ
 
 on:
-  schedule:
-    - cron: '0 10 * * *' # 1日1回 UTCでの10時に
-  # workflow_dispatch:  # 手動トリガー
+  # schedule:
+  #   - cron: '0 10 * * *' # 1日1回 UTCでの10時に
+  workflow_dispatch:  # 手動トリガー
 
 jobs:
   deploy:
@@ -25,11 +25,11 @@ jobs:
           # publish_dirはダウンロードしたファイルがあるディレクトリに設定してください
           publish_branch: gh-pages
 
-      - name: Commit files
-        run: |
-          curl -X POST \
-              -H "Authorization: Bearer ${{ secrets.ACCESS_TOKEN }}" \
-              -H "Accept: application/vnd.github.everest-preview+json" \
-              -H "Content-Type: application/json" \
-              https://api.github.com/repos/codeforkumamoto/od_kumamoto_city/dispatches --data '{"event_type": "get_insyokutenneigyoukyoka"}' \
-            || true
+      # - name: Commit files
+      #   run: |
+      #     curl -X POST \
+      #         -H "Authorization: Bearer ${{ secrets.ACCESS_TOKEN }}" \
+      #         -H "Accept: application/vnd.github.everest-preview+json" \
+      #         -H "Content-Type: application/json" \
+      #         https://api.github.com/repos/codeforkumamoto/od_kumamoto_city/dispatches --data '{"event_type": "get_insyokutenneigyoukyoka"}' \
+      #       || true

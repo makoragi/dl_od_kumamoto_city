@@ -31,5 +31,5 @@ jobs:
               -H "Authorization: Bearer ${{ secrets.ACCESS_TOKEN }}" \
               -H "Accept: application/vnd.github.everest-preview+json" \
               -H "Content-Type: application/json" \
-              https://api.github.com/repos/makoragi/od_kumamoto_city/dispatches --data '{"event_type": "get_insyokutenneigyoukyoka"}' \
+              https://api.github.com/repos/codeforkumamoto/od_kumamoto_city/dispatches --data '{"event_type": "get_insyokutenneigyoukyoka"}' \
             || true
